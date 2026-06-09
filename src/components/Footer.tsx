@@ -148,13 +148,13 @@ export default function Footer() {
                 FAQ
               </Link>
               <a
-                href="https://gemsweb.xyz"
+                href="https://studio.tangison.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-medium transition-colors"
                 style={{ color: "#D4AF37" }}
               >
-                Site by Gemsweb Digital
+                Site by Tangison Studio
               </a>
             </div>
           </div>
