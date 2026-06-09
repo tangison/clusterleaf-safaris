@@ -5,6 +5,9 @@ import { Instagram, Facebook, Mail, Phone, MapPin } from "lucide-react";
 import Image from "next/image";
 import { companyInfo } from "@/lib/content";
 
+// Pre-compute cleaned WhatsApp number for deep links
+const whatsappClean = companyInfo.whatsapp.replace(/\+/g, "").replace(/\s/g, "");
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -79,29 +82,29 @@ export default function Footer() {
             <div className="space-y-4">
               {/* Phone */}
               <a
-                href="tel:+264817378313"
+                href={`tel:${companyInfo.phone.replace(/\s/g, "")}`}
                 className="block text-white/80 hover:text-white transition-colors text-lg"
               >
-                +264 81 737 8313
+                {companyInfo.phone}
               </a>
 
               {/* Email */}
               <a
-                href="mailto:clusterleaf@outlook.com"
+                href={`mailto:${companyInfo.email}`}
                 className="block text-white/60 hover:text-white transition-colors"
               >
-                clusterleaf@outlook.com
+                {companyInfo.email}
               </a>
 
               {/* Location */}
               <p className="text-white/40 text-sm">
-                Windhoek, Namibia
+                {companyInfo.address}
               </p>
             </div>
 
             {/* WhatsApp Button */}
             <a
-              href={`https://wa.me/${companyInfo.whatsapp.replace(/\s+/g, '')}?text=Hi!%20I'm%20interested%20in%20learning%20more%20about%20your%20safaris.`}
+              href={`https://wa.me/${whatsappClean}?text=Hi!%20I'm%20interested%20in%20learning%20more%20about%20your%20safaris.`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-[#25D366] hover:bg-[#22c55e] text-white text-sm font-medium rounded-full transition-all duration-200"

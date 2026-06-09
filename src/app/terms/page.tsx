@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { FileText, CreditCard, Calendar, Shield, AlertTriangle, Scale, RefreshCw } from "lucide-react";
 import { createBreadcrumbSchema } from "@/lib/schema";
+import { companyInfo } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -179,16 +180,16 @@ export default function TermsOfServicePage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="mailto:clusterleaf@outlook.com"
+                  href={`mailto:${companyInfo.email}`}
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-charcoal rounded-full font-medium hover:bg-gray-100 transition-colors"
                 >
                   Email Us
                 </a>
                 <a
-                  href="tel:+264817378313"
+                  href={`tel:${companyInfo.phone.replace(/\s/g, "")}`}
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/30 text-white rounded-full font-medium hover:bg-white/10 transition-colors"
                 >
-                  Call +264 81 737 8313
+                  Call {companyInfo.phone}
                 </a>
               </div>
             </div>

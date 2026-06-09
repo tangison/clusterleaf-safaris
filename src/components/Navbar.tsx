@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { safaris } from "@/lib/content";
+import { safaris, companyInfo } from "@/lib/content";
 import { SearchDialog } from "@/components/SearchDialog";
 
 // Minimal navigation items - only essential links visible
@@ -476,10 +476,10 @@ export default function Navbar() {
               Book Your Safari
             </Link>
             <a
-              href="tel:+264817378313"
+              href={`tel:${companyInfo.phone.replace(/\s/g, "")}`}
               className="flex items-center justify-center gap-2 py-2 text-savanna font-medium"
             >
-              +264 81 737 8313
+              {companyInfo.phone}
             </a>
           </div>
         </div>

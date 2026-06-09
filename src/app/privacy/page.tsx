@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Shield, Lock, Eye, Database, Cookie, Mail } from "lucide-react";
 import { createBreadcrumbSchema } from "@/lib/schema";
+import { companyInfo } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -84,7 +85,7 @@ You can control cookies through your browser settings. Disabling cookies may aff
 • Opt out of marketing communications at any time
 • Lodge a complaint with a supervisory authority
 
-To exercise these rights, please contact us at clusterleaf@outlook.com`,
+To exercise these rights, please contact us at ${companyInfo.email}`,
   },
 ];
 
@@ -160,10 +161,10 @@ export default function PrivacyPolicyPage() {
                 If you have any questions about this Privacy Policy or our data practices, please contact us:
               </p>
               <div className="space-y-2 text-gray-600">
-                <p><strong>Cluster Leaf Safaris</strong></p>
-                <p>12 Klein Hamburg Avis, Windhoek, Namibia</p>
-                <p>Email: <a href="mailto:clusterleaf@outlook.com" className="text-savanna hover:underline">clusterleaf@outlook.com</a></p>
-                <p>Phone: <a href="tel:+264817378313" className="text-savanna hover:underline">+264 81 737 8313</a></p>
+                <p><strong>{companyInfo.name}</strong></p>
+                <p>{companyInfo.address}</p>
+                <p>Email: <a href={`mailto:${companyInfo.email}`} className="text-savanna hover:underline">{companyInfo.email}</a></p>
+                <p>Phone: <a href={`tel:${companyInfo.phone.replace(/\s/g, "")}`} className="text-savanna hover:underline">{companyInfo.phone}</a></p>
               </div>
             </div>
 
