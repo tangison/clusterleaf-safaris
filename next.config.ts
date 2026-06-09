@@ -7,10 +7,9 @@ const nextConfig: NextConfig = {
   // Image optimization configuration
   images: {
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
+      { protocol: 'https', hostname: 'clusterleafsafaris.com' },
+      { protocol: 'https', hostname: 'www.clusterleafsafaris.com' },
+      { protocol: 'https', hostname: '**.vercel.app' },
     ],
     // Enable image optimization
     formats: ['image/avif', 'image/webp'],
@@ -33,6 +32,10 @@ const nextConfig: NextConfig = {
           {
             key: 'X-XSS-Protection',
             value: '1; mode=block',
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.vercel.app https://*.clusterleafsafaris.com; font-src 'self' data:; connect-src 'self' https://*.vercel.app; frame-ancestors 'none'; base-uri 'self'; form-action 'self';",
           },
         ],
       },

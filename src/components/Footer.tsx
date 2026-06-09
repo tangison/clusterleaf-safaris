@@ -19,7 +19,7 @@ export default function Footer() {
               <div className="flex items-center justify-center md:justify-start gap-4">
                 <div className="w-14 h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center overflow-hidden">
                   <Image
-                    src="/assets/images/logos/logo-main.png"
+                    src="/assets/images/logos/logo-main.webp"
                     alt="Logo"
                     width={56}
                     height={56}

@@ -5,16 +5,29 @@ import { MapPin, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { destinations, safaris } from "@/lib/content";
 import CTASection from "@/components/CTASection";
+import { createBreadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Destinations",
   description:
     "Explore the stunning destinations of Southern Africa - Namibia, Botswana, Zimbabwe, and Zambia. From the Namib Desert to Victoria Falls.",
+  alternates: {
+    canonical: 'https://www.clusterleafsafaris.com/destinations',
+  },
 };
+
+const breadcrumbSchema = createBreadcrumbSchema([
+  { name: "Home", url: "/" },
+  { name: "Destinations", url: "/destinations" },
+]);
 
 export default function DestinationsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero Section */}
       <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden bg-savanna">
         <div className="absolute inset-0 bg-charcoal/40" />

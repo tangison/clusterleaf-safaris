@@ -22,7 +22,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://clusterleafsafaris.com"),
+  metadataBase: new URL("https://www.clusterleafsafaris.com"),
   title: {
     default: "Cluster Leaf Safaris | Custom Namibia Tours & Safaris",
     template: "%s | Cluster Leaf Safaris",
@@ -55,13 +55,13 @@ export const metadata: Metadata = {
     title: "Cluster Leaf Safaris | Custom Namibia Tours & Safaris",
     description:
       "Personalized, owner-operated safaris across Namibia, Botswana, Zimbabwe, and Zambia. Led by expert guide Taedza Mtambanengwe since 2015.",
-    url: "https://clusterleafsafaris.com",
+    url: "https://www.clusterleafsafaris.com",
     siteName: "Cluster Leaf Safaris",
     type: "website",
     locale: "en_US",
     images: [
       {
-        url: "/assets/images/logos/logo-main.png",
+        url: "/assets/images/logos/logo-main.webp",
         width: 1200,
         height: 630,
         alt: "Cluster Leaf Safaris - Africa Awaits",
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     title: "Cluster Leaf Safaris | Custom Namibia Tours & Safaris",
     description:
       "Personalized, owner-operated safaris across Namibia, Botswana, Zimbabwe, and Zambia.",
-    images: ["/assets/images/logos/logo-main.png"],
+    images: ["/assets/images/logos/logo-main.webp"],
   },
   robots: {
     index: true,
@@ -112,9 +112,12 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-background text-foreground`}
       >
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded-md">
+          Skip to main content
+        </a>
         <div className="page-wrapper">
           <Navbar />
-          <main className="page-content">{children}</main>
+          <main id="main-content" className="page-content">{children}</main>
           <Footer />
         </div>
         <GrainOverlay />

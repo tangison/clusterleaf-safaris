@@ -1,11 +1,20 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { FileText, CreditCard, Calendar, Shield, AlertTriangle, Scale, RefreshCw } from "lucide-react";
+import { createBreadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "Cluster Leaf Safaris terms and conditions. Read our booking terms, cancellation policy, and service agreements before planning your safari.",
+  alternates: {
+    canonical: 'https://www.clusterleafsafaris.com/terms',
+  },
 };
+
+const breadcrumbSchema = createBreadcrumbSchema([
+  { name: "Home", url: "/" },
+  { name: "Terms of Service", url: "/terms" },
+]);
 
 const sections = [
   {
@@ -84,6 +93,10 @@ By making a booking, you acknowledge that you have read, understood, and agree t
 export default function TermsOfServicePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero Section */}
       <section className="relative h-[35vh] min-h-[280px] flex items-center justify-center overflow-hidden bg-charcoal">
         <div className="absolute inset-0 bg-gradient-to-b from-sunset/20 to-charcoal" />

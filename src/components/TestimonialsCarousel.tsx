@@ -82,6 +82,7 @@ export default function TestimonialsCarousel() {
               variant="outline"
               size="icon"
               onClick={prev}
+              aria-label="Previous testimonial"
               className="border-white/30 text-white hover:bg-white/10 hover:text-white bg-transparent rounded-full h-12 w-12"
             >
               <ChevronLeft className="h-6 w-6" />
@@ -90,6 +91,7 @@ export default function TestimonialsCarousel() {
               variant="outline"
               size="icon"
               onClick={next}
+              aria-label="Next testimonial"
               className="border-white/30 text-white hover:bg-white/10 hover:text-white bg-transparent rounded-full h-12 w-12"
             >
               <ChevronRight className="h-6 w-6" />

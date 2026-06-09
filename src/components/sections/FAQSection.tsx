@@ -59,7 +59,7 @@ export default function FAQSection({
       {/* Section Header */}
       <div className="text-center mb-12">
         <h2 className="font-serif text-4xl md:text-5xl font-bold text-charcoal mb-4">
-          Frequently Asked Questions
+          Browse Questions & Answers
         </h2>
         <p className="text-lg text-gray-600">
           Find answers to common questions about our safaris, booking process,

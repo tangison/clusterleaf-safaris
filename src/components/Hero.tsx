@@ -40,6 +40,7 @@ export default function Hero() {
             muted
             loop
             playsInline
+            aria-hidden="true"
             className="w-full h-full object-cover opacity-60"
           >
             <source src={heroVideos[currentVideo]} type="video/mp4" />

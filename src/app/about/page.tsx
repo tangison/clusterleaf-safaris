@@ -3,12 +3,21 @@ import Image from "next/image";
 import { CheckCircle, Users, Leaf, Compass, Download, FileText } from "lucide-react";
 import { founderInfo, companyInfo } from "@/lib/content";
 import CTASection from "@/components/CTASection";
+import { createBreadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
     "Learn about Cluster Leaf Safaris and our founder Taedza Mtambanengwe (Mr. T). Owner-operated safaris delivering authentic African experiences since 2015.",
+  alternates: {
+    canonical: 'https://www.clusterleafsafaris.com/about',
+  },
 };
+
+const breadcrumbSchema = createBreadcrumbSchema([
+  { name: "Home", url: "/" },
+  { name: "About", url: "/about" },
+]);
 
 const philosophyPoints = [
   {
@@ -34,11 +43,15 @@ const philosophyPoints = [
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/assets/images/gallery/with-chiara.jpg"
+            src="/assets/images/gallery/with-chiara.webp"
             alt="Cluster Leaf Safaris"
             fill
             className="object-cover"

@@ -4,6 +4,12 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { blogPosts, blogCategories } from "@/lib/content";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { createBreadcrumbSchema } from "@/lib/schema";
+
+const breadcrumbSchema = createBreadcrumbSchema([
+  { name: "Home", url: "/" },
+  { name: "Blog", url: "/blog" },
+]);
 
 export default function BlogPage() {
   const featuredPost = blogPosts.find((post) => post.featured);
@@ -11,6 +17,10 @@ export default function BlogPage() {
 
   return (
     <main className="min-h-screen pt-32 pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero Section */}
       <section className="relative py-16 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-desert/20 to-transparent" />

@@ -18,6 +18,12 @@ import { companyInfo, safaris } from "@/lib/content";
 import { useToast } from "@/hooks/use-toast";
 import CompactFAQ from "@/components/sections/CompactFAQ";
 import { faqItems } from "@/lib/faqData";
+import { createBreadcrumbSchema } from "@/lib/schema";
+
+const breadcrumbSchema = createBreadcrumbSchema([
+  { name: "Home", url: "/" },
+  { name: "Contact", url: "/contact" },
+]);
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -107,6 +113,10 @@ export default function ContactPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero Section */}
       <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden bg-savanna">
         <div className="absolute inset-0 bg-charcoal/40" />

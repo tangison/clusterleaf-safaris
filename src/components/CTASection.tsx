@@ -12,7 +12,7 @@ export default function CTASection() {
       {/* Background */}
       <div className="absolute inset-0">
         <Image
-          src="/assets/images/gallery/himba-experience.jpg"
+          src="/assets/images/gallery/himba-experience.webp"
           alt="Safari Experience"
           fill
           className="object-cover"

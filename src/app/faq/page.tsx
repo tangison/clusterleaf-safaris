@@ -1,14 +1,28 @@
 "use client";
 
-import { Metadata } from "next";
 import FAQSection from "@/components/sections/FAQSection";
 import { faqItems } from "@/lib/faqData";
 import Link from "next/link";
-import { ArrowLeft, HelpCircle } from "lucide-react";
+import { HelpCircle } from "lucide-react";
+import { createFAQSchema, createBreadcrumbSchema } from "@/lib/schema";
+
+const faqSchema = createFAQSchema(faqItems.map(item => ({ question: item.question, answer: item.answer })));
+const breadcrumbSchema = createBreadcrumbSchema([
+  { name: "Home", url: "/" },
+  { name: "FAQ", url: "/faq" },
+]);
 
 export default function FAQPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero Section */}
       <section className="relative h-[35vh] min-h-[280px] flex items-center justify-center overflow-hidden bg-savanna">
         <div className="absolute inset-0 bg-charcoal/40" />

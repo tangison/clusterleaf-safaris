@@ -1,11 +1,20 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Shield, Lock, Eye, Database, Cookie, Mail } from "lucide-react";
+import { createBreadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "Cluster Leaf Safaris privacy policy. Learn how we collect, use, and protect your personal information when you book a safari with us.",
+  alternates: {
+    canonical: 'https://www.clusterleafsafaris.com/privacy',
+  },
 };
+
+const breadcrumbSchema = createBreadcrumbSchema([
+  { name: "Home", url: "/" },
+  { name: "Privacy Policy", url: "/privacy" },
+]);
 
 const sections = [
   {
@@ -82,6 +91,10 @@ To exercise these rights, please contact us at clusterleaf@outlook.com`,
 export default function PrivacyPolicyPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero Section */}
       <section className="relative h-[35vh] min-h-[280px] flex items-center justify-center overflow-hidden bg-charcoal">
         <div className="absolute inset-0 bg-gradient-to-b from-savanna/20 to-charcoal" />

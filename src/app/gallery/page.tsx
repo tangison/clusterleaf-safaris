@@ -8,6 +8,12 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 import { galleryImages, galleryCategories } from "@/lib/content";
+import { createBreadcrumbSchema } from "@/lib/schema";
+
+const breadcrumbSchema = createBreadcrumbSchema([
+  { name: "Home", url: "/" },
+  { name: "Gallery", url: "/gallery" },
+]);
 
 // Featured collections derived from gallery categories
 const collections = [
@@ -15,28 +21,28 @@ const collections = [
     id: "1",
     title: "Apex Predators",
     count: 24,
-    images: ["/assets/images/gallery/wildlife-lion-close-up.jpg", "/assets/images/gallery/wildlife-leopard-tree.jpg"],
+    images: ["/assets/images/gallery/wildlife-lion-close-up.webp", "/assets/images/gallery/wildlife-leopard-tree.webp"],
     description: "The raw power of Africa's most formidable hunters."
   },
   {
     id: "2",
     title: "Ethereal Sands",
     count: 18,
-    images: ["/assets/images/gallery/landscape-desert-dunes.jpg", "/assets/images/gallery/landscape-desert-colors.jpg"],
+    images: ["/assets/images/gallery/landscape-desert-dunes.webp", "/assets/images/gallery/landscape-desert-colors.webp"],
     description: "The shifting patterns and timeless silence of the Namib."
   },
   {
     id: "3",
     title: "Ancient Lineage",
     count: 15,
-    images: ["/assets/images/gallery/culture-himba-woman.jpg", "/assets/images/gallery/culture-san-bushmen-skills.jpg"],
+    images: ["/assets/images/gallery/culture-himba-woman.webp", "/assets/images/gallery/culture-san-bushmen-skills.webp"],
     description: "A tribute to the enduring cultures of the savannah."
   },
   {
     id: "4",
     title: "Safari Echoes",
     count: 32,
-    images: ["/assets/images/gallery/safari-sunset-drive.jpg", "/assets/images/gallery/guest-sundowners-bush.jpg"],
+    images: ["/assets/images/gallery/safari-sunset-drive.webp", "/assets/images/gallery/guest-sundowners-bush.webp"],
     description: "Candid moments of wonder from our fellow travelers."
   },
 ];
@@ -130,11 +136,15 @@ export default function GalleryPage() {
 
   return (
     <main className="min-h-screen bg-[#faf9f6]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Avant-Garde Hero Section */}
       <section ref={heroRef} className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-charcoal">
         <motion.div style={{ y: heroY }} className="absolute inset-0">
           <Image
-            src="/assets/images/gallery/landscape-namibia-plains.jpg"
+            src="/assets/images/gallery/landscape-namibia-plains.webp"
             alt="Gallery Hero"
             fill
             quality={100}
@@ -305,7 +315,7 @@ export default function GalleryPage() {
                   >
                     <Image
                       src={image.src}
-                      alt={image.title}
+                      alt={image.alt}
                       width={800}
                       height={1000}
                       className={`w-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700 ${
@@ -380,7 +390,7 @@ export default function GalleryPage() {
               >
                 <Image
                   src={currentImage.src}
-                  alt={currentImage.title}
+                  alt={currentImage.alt}
                   fill
                   className="object-contain drop-shadow-2xl"
                   priority

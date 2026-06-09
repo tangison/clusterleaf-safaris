@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { blogPosts, blogCategories, companyInfo } from "@/lib/content";
 import { Calendar, Clock, ArrowLeft, Share2, Facebook, Twitter } from "lucide-react";
+import { createBlogPostSchema, createBreadcrumbSchema } from "@/lib/schema";
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -31,6 +32,16 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
   return {
     title: `${post.title} | Safari Journal`,
     description: post.excerpt,
+    alternates: {
+      canonical: `https://www.clusterleafsafaris.com/blog/${post.slug}`,
+    },
+    openGraph: {
+      title: `${post.title} | Cluster Leaf Safaris`,
+      description: post.excerpt,
+      url: `https://www.clusterleafsafaris.com/blog/${post.slug}`,
+      type: 'article',
+      publishedTime: post.date,
+    },
   };
 }
 
@@ -46,6 +57,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const relatedPosts = blogPosts
     .filter((p) => p.category === post.category && p.id !== post.id)
     .slice(0, 3);
+
+  const blogPostSchema = createBlogPostSchema({
+    title: post.title,
+    description: post.excerpt || post.title,
+    author: post.author.name,
+    datePublished: post.date,
+    image: post.image,
+    slug: post.slug,
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Blog", url: "/blog" },
+    { name: post.title, url: `/blog/${post.slug}` },
+  ]);
 
   // Parse markdown-like content to HTML
   const renderContent = (content: string) => {
@@ -112,6 +138,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <main className="min-h-screen pt-32 pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <article className="container mx-auto px-4 max-w-4xl">
         {/* Breadcrumb */}
         <nav className="mb-8">

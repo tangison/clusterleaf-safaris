@@ -122,7 +122,7 @@ export default function Navbar() {
             className="flex items-center gap-3 flex-shrink-0 mr-8"
           >
             <Image
-              src="/assets/images/logos/logo-main.png"
+              src="/assets/images/logos/logo-main.webp"
               alt="Cluster Leaf Safaris"
               width={48}
               height={48}
@@ -345,7 +345,7 @@ export default function Navbar() {
               onClick={closeMobileMenu}
             >
               <Image
-                src="/assets/images/logos/logo-main.png"
+                src="/assets/images/logos/logo-main.webp"
                 alt="Cluster Leaf Safaris"
                 width={48}
                 height={48}

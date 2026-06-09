@@ -18,7 +18,7 @@ export function generateMetadata({
   title,
   description,
   keywords = [],
-  image = '/assets/images/logos/logo-main.png',
+  image = '/assets/images/logos/logo-main.webp',
   url = '',
   type = 'website',
   publishedTime,

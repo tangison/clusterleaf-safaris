@@ -1,18 +1,30 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import { Star, Quote } from "lucide-react";
 import { testimonials, companyInfo } from "@/lib/content";
 import CTASection from "@/components/CTASection";
+import { createBreadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Reviews",
   description:
     "Read what our guests say about their Cluster Leaf Safaris experience. 5-star reviews from travelers around the world.",
+  alternates: {
+    canonical: 'https://www.clusterleafsafaris.com/reviews',
+  },
 };
+
+const breadcrumbSchema = createBreadcrumbSchema([
+  { name: "Home", url: "/" },
+  { name: "Reviews", url: "/reviews" },
+]);
 
 export default function ReviewsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero Section */}
       <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden bg-savanna">
         <div className="absolute inset-0 bg-charcoal/40" />

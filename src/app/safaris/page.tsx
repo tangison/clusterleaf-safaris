@@ -5,9 +5,15 @@ import { motion } from "framer-motion";
 import SafariCard from "@/components/SafariCard";
 import { safaris } from "@/lib/content";
 import { Button } from "@/components/ui/button";
+import { createBreadcrumbSchema } from "@/lib/schema";
 
 const allCountries = ["All", "Namibia", "Botswana", "Zimbabwe", "Zambia"];
 const allDurations = ["All", "Short (1-7 days)", "Medium (8-12 days)", "Long (13+ days)"];
+
+const breadcrumbSchema = createBreadcrumbSchema([
+  { name: "Home", url: "/" },
+  { name: "Safaris", url: "/safaris" },
+]);
 
 export default function SafarisPage() {
   const [selectedCountry, setSelectedCountry] = useState("All");
@@ -33,6 +39,10 @@ export default function SafarisPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero Section */}
       <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden bg-savanna">
         <div className="absolute inset-0 bg-charcoal/40" />
@@ -103,6 +113,7 @@ export default function SafarisPage() {
       {/* Safari Grid */}
       <section className="py-16 bg-off-white">
         <div className="container mx-auto px-4">
+          <h2 className="sr-only">Available Safari Tours</h2>
           {filteredSafaris.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredSafaris.map((safari, index) => (

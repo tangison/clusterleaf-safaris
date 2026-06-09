@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/accordion";
 import { safaris, companyInfo } from "@/lib/content";
 import CTASection from "@/components/CTASection";
+import { createSafariSchema, createBreadcrumbSchema } from "@/lib/schema";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -37,9 +38,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: safari.title,
     description: safari.description,
+    alternates: {
+      canonical: `https://www.clusterleafsafaris.com/safaris/${safari.slug}`,
+    },
     openGraph: {
       title: `${safari.title} | Cluster Leaf Safaris`,
       description: safari.description,
+      url: `https://www.clusterleafsafaris.com/safaris/${safari.slug}`,
       images: [safari.image],
     },
   };
@@ -59,8 +64,33 @@ export default async function SafariDetailPage({ params }: Props) {
     notFound();
   }
 
+  const safariProductSchema = createSafariSchema({
+    name: safari.title,
+    description: safari.description,
+    duration: safari.duration,
+    price: safari.priceFrom,
+    currency: "USD",
+    countries: safari.countries,
+    slug: safari.slug,
+    image: safari.image,
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Safaris", url: "/safaris" },
+    { name: safari.title, url: `/safaris/${safari.slug}` },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(safariProductSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden">
         <div className="absolute inset-0">

@@ -10,8 +10,8 @@ export const organizationSchema = {
   '@id': `${baseUrl}/#organization`,
   name: 'Cluster Leaf Safaris',
   url: baseUrl,
-  logo: `${baseUrl}/assets/images/logos/logo-main.png`,
-  image: `${baseUrl}/assets/images/logos/logo-main.png`,
+  logo: `${baseUrl}/assets/images/logos/logo-main.webp`,
+  image: `${baseUrl}/assets/images/logos/logo-main.webp`,
   description: 'Owner-operated safari company specializing in personalized adventures across Namibia, Botswana, Zimbabwe, and Zambia since 2015.',
   foundingDate: '2015',
   founder: {
@@ -76,7 +76,7 @@ export const localBusinessSchema = {
   '@type': 'TravelAgency',
   '@id': `${baseUrl}/#business`,
   name: 'Cluster Leaf Safaris',
-  image: `${baseUrl}/assets/images/logos/logo-main.png`,
+  image: `${baseUrl}/assets/images/logos/logo-main.webp`,
   telephone: '+264-81-737-8313',
   email: 'clusterleaf@outlook.com',
   address: {
@@ -126,7 +126,7 @@ export function createSafariSchema(safari: {
     '@type': 'Product',
     name: safari.name,
     description: safari.description,
-    image: safari.image || `${baseUrl}/assets/images/logos/logo-main.png`,
+    image: safari.image || `${baseUrl}/assets/images/logos/logo-main.webp`,
     url: `${baseUrl}/safaris/${safari.slug}`,
     brand: {
       '@type': 'Brand',
@@ -167,7 +167,7 @@ export function createBlogPostSchema(post: {
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.description,
-    image: post.image || `${baseUrl}/assets/images/logos/logo-main.png`,
+    image: post.image || `${baseUrl}/assets/images/logos/logo-main.webp`,
     datePublished: post.datePublished,
     dateModified: post.dateModified || post.datePublished,
     author: {
@@ -179,7 +179,7 @@ export function createBlogPostSchema(post: {
       name: 'Cluster Leaf Safaris',
       logo: {
         '@type': 'ImageObject',
-        url: `${baseUrl}/assets/images/logos/logo-main.png`,
+        url: `${baseUrl}/assets/images/logos/logo-main.webp`,
       },
     },
     url: `${baseUrl}/blog/${post.slug}`,
