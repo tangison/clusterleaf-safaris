@@ -8,6 +8,7 @@ import GrainOverlay from "@/components/GrainOverlay";
 import WhatsAppWidget from "@/components/widgets/WhatsAppWidget";
 import ScrollToTop from "@/components/widgets/ScrollToTop";
 import { organizationSchema, websiteSchema, localBusinessSchema } from "@/lib/schema";
+import { companyInfo } from "@/lib/content";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -125,7 +126,7 @@ export default function RootLayout({
         
         {/* WhatsApp Widget - Left side, appears conditionally */}
         <WhatsAppWidget
-          phoneNumber="264817378313"
+          phoneNumber={companyInfo.whatsapp.replace(/\+/g, "").replace(/\s/g, "")}
           defaultMessage="Hi! I'm interested in learning more about your safaris."
         />
         

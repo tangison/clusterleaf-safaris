@@ -246,7 +246,7 @@ export default function AboutPage() {
                 
                 {/* Download Button */}
                 <a
-                  href="/assets/documents/company-profile.pdf"
+                  href="/upload/company-profile.pdf"
                   download
                   className="inline-flex items-center gap-2 px-6 py-4 bg-savanna text-white font-semibold rounded-full shadow-sm shadow-savanna/20 hover:bg-savanna/90 hover:shadow-md transition-all duration-300 flex-shrink-0"
                 >

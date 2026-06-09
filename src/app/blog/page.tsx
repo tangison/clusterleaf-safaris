@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
@@ -5,6 +6,21 @@ import { Button } from "@/components/ui/button";
 import { blogPosts, blogCategories } from "@/lib/content";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { createBreadcrumbSchema } from "@/lib/schema";
+
+export const metadata: Metadata = {
+  title: "Blog - Safari Tips & Travel Guides",
+  description:
+    "Expert safari advice, travel guides, and stories from Namibia, Botswana, Zimbabwe & Zambia. Learn about wildlife, best times to visit, and safari preparation.",
+  openGraph: {
+    title: "Safari Journal | Cluster Leaf Safaris",
+    description:
+      "Expert safari advice, travel guides, and stories from Namibia, Botswana, Zimbabwe & Zambia.",
+    url: "https://www.clusterleafsafaris.com/blog",
+  },
+  alternates: {
+    canonical: "https://www.clusterleafsafaris.com/blog",
+  },
+};
 
 const breadcrumbSchema = createBreadcrumbSchema([
   { name: "Home", url: "/" },

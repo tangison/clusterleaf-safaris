@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronDown, Search } from "lucide-react";
 import { FAQItem } from "@/lib/faqData";
+import { companyInfo } from "@/lib/content";
 
 interface FAQSectionProps {
   items: FAQItem[];
@@ -166,13 +167,13 @@ export default function FAQSection({
         <p className="text-gray-600 mb-4">Still have questions? We&apos;re here to help!</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="mailto:clusterleaf@outlook.com"
+            href={`mailto:${companyInfo.email}`}
             className="px-6 py-3 bg-savanna text-white rounded-full font-medium hover:bg-savanna/90 transition-colors duration-200"
           >
             Email Us
           </a>
           <a
-            href="https://wa.me/264817378313"
+            href={`https://wa.me/${companyInfo.whatsapp.replace(/\+/g, "").replace(/\s/g, "")}` }
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3 bg-[#25D366] text-white rounded-full font-medium hover:bg-[#128C7E] transition-colors duration-200"

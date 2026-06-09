@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Clock, Send, Loader2 } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -15,7 +15,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { companyInfo, safaris } from "@/lib/content";
-import { useToast } from "@/hooks/use-toast";
 import CompactFAQ from "@/components/sections/CompactFAQ";
 import { faqItems } from "@/lib/faqData";
 import { createBreadcrumbSchema } from "@/lib/schema";
@@ -26,7 +25,6 @@ const breadcrumbSchema = createBreadcrumbSchema([
 ]);
 
 export default function ContactPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -38,77 +36,31 @@ export default function ContactPage() {
     referrerName: "",
     message: "",
   });
-  const { toast } = useToast();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
 
-    try {
-      // 1. First send to our API (database/email)
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    // Build WhatsApp message directly
+    const messageParts = [
+      "NEW INQUIRY: WEB",
+      "--------------------------",
+      `CLIENT: ${formData.name}`,
+      `EMAIL: ${formData.email}`,
+      `PHONE: ${formData.phone}`,
+      `TRAVELERS: ${formData.travelers}`,
+      `SAFARI/PROJECT: ${formData.project || formData.safari || "Custom Inquiry"}`,
+      `SOURCE: ${formData.referralSource}${formData.referrerName ? ` (${formData.referrerName})` : ""}`,
+      "",
+      "MESSAGE:",
+      formData.message,
+    ];
 
-      if (!response.ok) {
-        throw new Error("Failed to send message to system");
-      }
+    const waMessage = messageParts.map(part => encodeURIComponent(part)).join("%0A");
+    const waNumber = companyInfo.whatsapp.replace(/\+/g, "").replace(/\s/g, "");
+    const waLink = `https://wa.me/${waNumber}?text=${waMessage}`;
 
-      // 2. Format detailed message for WhatsApp - Clean & Professional
-      const messageParts = [
-        "NEW INQUIRY: WEB",
-        "--------------------------",
-        `CLIENT: ${formData.name}`,
-        `EMAIL: ${formData.email}`,
-        `PHONE: ${formData.phone}`,
-        `TRAVELERS: ${formData.travelers}`,
-        `SAFARI/PROJECT: ${formData.project || formData.safari || "Custom Inquiry"}`,
-        `SOURCE: ${formData.referralSource}${formData.referrerName ? ` (${formData.referrerName})` : ""}`,
-        "",
-        "MESSAGE:",
-        formData.message
-      ];
-
-      const waMessage = messageParts.map(part => encodeURIComponent(part)).join("%0A");
-
-      const waLink = `https://wa.me/${companyInfo.whatsapp.replace(/\+/g, "").replace(/\s/g, "")}?text=${waMessage}`;
-
-      toast({
-        title: "Inquiry Sent!",
-        description: "Your inquiry has been logged. Redirecting you to WhatsApp to start a conversation...",
-      });
-
-      // Clear form
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        safari: "",
-        project: "",
-        travelers: "",
-        referralSource: "",
-        referrerName: "",
-        message: "",
-      });
-
-      // Redirect after a short delay
-      setTimeout(() => {
-        window.open(waLink, "_blank");
-      }, 1500);
-
-    } catch {
-      toast({
-        title: "Error",
-        description: "Failed to process inquiry. Please try again or message us on WhatsApp directly.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Open WhatsApp immediately
+    window.open(waLink, "_blank");
   };
 
   return (
@@ -300,20 +252,10 @@ export default function ContactPage() {
 
                 <Button
                   type="submit"
-                  disabled={isSubmitting}
                   className="w-full bg-sunset hover:bg-sunset-dark text-white uppercase tracking-widest py-6 rounded-lg"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="mr-2 h-4 w-4" />
-                      Send Inquiry
-                    </>
-                  )}
+                  <Send className="mr-2 h-4 w-4" />
+                  Send via WhatsApp
                 </Button>
               </form>
             </div>
@@ -343,7 +285,7 @@ export default function ContactPage() {
                 </a>
 
                 <a
-                  href={`https://wa.me/${companyInfo.whatsapp}`}
+                  href={`https://wa.me/${companyInfo.whatsapp.replace(/\+/g, "").replace(/\s/g, "")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-4 p-4 bg-off-white hover:bg-desert/20 transition-colors group"

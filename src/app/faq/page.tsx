@@ -2,6 +2,7 @@
 
 import FAQSection from "@/components/sections/FAQSection";
 import { faqItems } from "@/lib/faqData";
+import { companyInfo } from "@/lib/content";
 import Link from "next/link";
 import { HelpCircle } from "lucide-react";
 import { createFAQSchema, createBreadcrumbSchema } from "@/lib/schema";
@@ -68,7 +69,7 @@ export default function FAQPage() {
               Contact Us
             </Link>
             <a
-              href="https://wa.me/264817378313"
+              href={`https://wa.me/${companyInfo.whatsapp.replace(/\+/g, "").replace(/\s/g, "")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 bg-[#25D366] text-white rounded-full font-semibold hover:bg-[#128C7E] transition-colors duration-200"
