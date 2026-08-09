@@ -120,7 +120,7 @@ export const reviewPlatforms = [
     reviewLabel: "",
     platformNote: "New on Google. Be the first to leave a review.",
     listingUrl: "https://www.google.com/maps/place/Cluster+Leaf+Safaris/data=!4m2!3m1!1s0x0:0xcdae714e561d5bb8",
-    writeReviewUrl: "https://search.google.com/local/writereview?placeid=0x1c0b1badcc19c34f:0xcdae714e561d5bb8",
+    writeReviewUrl: "https://www.google.com/search?q=Cluster+Leaf+Safaris+Windhoek&kgmid=%2Fg%2F11nb4mgzqv",
   },
 ];
 

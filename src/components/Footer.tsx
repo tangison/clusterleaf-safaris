@@ -18,25 +18,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
           <div className="text-center md:text-left">
             {/* Logo */}
-            <Link href="/" className="inline-block mb-6">
-              <div className="flex items-center justify-center md:justify-start gap-4">
-                <div className="w-14 h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center overflow-hidden">
-                  <Image
-                    src="/assets/images/logos/logo-main.webp"
-                    alt="Logo"
-                    width={56}
-                    height={56}
-                    className="w-full h-full object-contain p-2"
-                  />
-                </div>
-                <div>
-                  <span className="font-serif text-2xl font-bold text-white block leading-tight">
-                    Cluster Leaf
-                  </span>
-                  <span className="font-serif text-lg text-white/50 italic">
-                    Safaris
-                  </span>
-                </div>
+            <Link href="/" className="inline-block mb-6" aria-label="Cluster Leaf Safaris home">
+              <div className="w-32 h-32 md:w-44 md:h-44 rounded-full bg-white/10 border border-white/20 flex items-center justify-center overflow-hidden mx-auto md:mx-0">
+                <Image
+                  src="/assets/images/logos/logo-main.webp"
+                  alt="Cluster Leaf Safaris logo"
+                  width={176}
+                  height={176}
+                  className="w-full h-full object-contain p-3"
+                />
               </div>
             </Link>
 

@@ -376,7 +376,7 @@ export default function ContactPage() {
                 </div>
                 <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
                   <a
-                    href="https://search.google.com/local/writereview?placeid=0x1c0b1badcc19c34f:0xcdae714e561d5bb8"
+                    href="https://www.google.com/search?q=Cluster+Leaf+Safaris+Windhoek&kgmid=%2Fg%2F11nb4mgzqv"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-savanna hover:text-savanna-dark transition-colors font-medium"

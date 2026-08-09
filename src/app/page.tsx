@@ -73,8 +73,8 @@ export default function Home() {
       <link
         rel="preload"
         as="image"
-        href="/assets/images/gallery/landscape-delta-aerial.webp"
-        type="image/webp"
+        href="/assets/images/hero/hero-delta.jpg"
+        type="image/jpeg"
       />
       {/* Hero Section */}
       <Hero />

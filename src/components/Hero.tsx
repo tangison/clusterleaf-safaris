@@ -14,16 +14,18 @@ const heroVideos = [
 ];
 
 const heroPosters = [
-  "/assets/images/gallery/landscape-delta-aerial.webp",
-  "/assets/images/gallery/sossus-dunes.webp",
-  "/assets/images/gallery/landscape-sunset-silhouette.webp",
+  "/assets/images/hero/hero-delta.jpg",
+  "/assets/images/hero/hero-dunes.jpg",
+  "/assets/images/hero/hero-silhouette.jpg",
 ];
 
 export default function Hero() {
   const [currentVideo, setCurrentVideo] = useState(0);
+  const [rotated, setRotated] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
+      setRotated(true);
       setCurrentVideo((prev) => (prev + 1) % heroVideos.length);
     }, 8000); // Rotate every 8 seconds
     return () => clearInterval(timer);
@@ -35,7 +37,7 @@ export default function Hero() {
       <AnimatePresence mode="wait">
         <motion.div
           key={heroVideos[currentVideo]}
-          initial={{ opacity: 0 }}
+          initial={rotated ? { opacity: 0 } : { opacity: 1 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 2 }}
