@@ -86,7 +86,7 @@ export default function Footer() {
                 href={companyInfo.socialLinks.visitNamibia}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-white/40 text-xs hover:text-white/60 transition-colors"
+                className="flex items-center gap-2 text-white/50 text-xs hover:text-white/70 transition-colors"
               >
                 <Image
                   src="/assets/images/ntb-registered.png"
