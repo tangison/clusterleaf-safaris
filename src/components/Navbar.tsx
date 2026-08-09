@@ -323,7 +323,10 @@ export default function Navbar() {
         />
       )}
 
-      {/* Mobile Menu Panel */}
+      {/* Mobile Menu Panel. Parked offscreen with translate-x-full when
+          closed (any residual horizontal geometry is neutralized by the
+          global overflow-x: clip); inert + aria-hidden keep it out of the
+          tab order and accessibility tree until opened. */}
       <div
         className={`
           fixed top-0 right-0 z-[60]
@@ -335,6 +338,8 @@ export default function Navbar() {
           ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}
         `}
         style={{ borderRadius: "32px 0 0 32px" }}
+        inert={!isMobileMenuOpen}
+        aria-hidden={!isMobileMenuOpen}
       >
         <div className="flex flex-col h-full">
           {/* Mobile Header */}
