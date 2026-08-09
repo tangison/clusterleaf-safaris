@@ -417,80 +417,23 @@
   padding: 0;
 }
 
-/* Entrance reveals, zero JS.
-   Progressive enhancement via scroll-driven animations: browsers without
-   animation-timeline support simply render the content statically.
-   Replaces the framer-motion whileInView fades that used to force the
-   animation library into the initial JS bundle. */
-.reveal,
-.reveal-left,
-.reveal-right {
-  /* Engines without scroll-driven animations: fully visible, static. */
+/* ===========================
+   LAYOUT SAFETY
+   =========================== */
+/* Kill any accidental horizontal overflow (was: decorative accent box at
+   -right-6 created a white margin on the right on mobile). overflow-x: clip
+   does not create a scroll container, so position: sticky keeps working
+   (overflow-x: hidden would break the sticky bars on /gallery and /safaris).
+   Engines without clip support ignore the declaration; the root causes are
+   clipped at component level too. */
+html,
+body {
+  overflow-x: clip;
 }
 
-@supports (animation-timeline: view()) {
-  .reveal {
-    animation: reveal-up linear both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 55%;
-  }
-
-  .reveal-left {
-    animation: reveal-from-left linear both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 55%;
-  }
-
-  .reveal-right {
-    animation: reveal-from-right linear both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 55%;
-  }
-
-  @keyframes reveal-up {
-    from {
-      opacity: 0;
-      transform: translateY(24px);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  @keyframes reveal-from-left {
-    from {
-      opacity: 0;
-      transform: translateX(-30px);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  @keyframes reveal-from-right {
-    from {
-      opacity: 0;
-      transform: translateX(30px);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .reveal-left,
-  .reveal-right,
-  .swap-in,
-  .hero-bg-fade {
-    animation: none !important;
-  }
-}
-
+/* ===========================
+   ANIMATIONS (zero JS)
+   =========================== */
 /* Carousel slide swap, replaces framer-motion AnimatePresence. */
 .swap-in {
   animation: swap-in 0.4s ease-out both;
@@ -518,5 +461,12 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swap-in,
+  .hero-bg-fade {
+    animation: none !important;
   }
 }

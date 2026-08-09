@@ -1,9 +1,7 @@
 import { Calendar, Map, Star } from "lucide-react";
 import { companyInfo } from "@/lib/content";
 
-// Server component: the whileInView entrance fade is now a pure CSS
-// scroll-driven animation (.reveal in globals.css), so this section ships
-// no client JavaScript at all.
+// Server component: ships no client JavaScript at all.
 const stats = [
   {
     icon: Calendar,
@@ -33,7 +31,7 @@ export default function TrustSignals() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="reveal flex flex-col items-center text-center p-6 border border-gray-100 hover:border-savanna/20 transition-colors"
+              className="flex flex-col items-center text-center p-6 border border-gray-100 hover:border-savanna/20 transition-colors"
             >
               <stat.icon className="h-8 w-8 text-savanna mb-4" />
               <span className="font-serif text-4xl font-bold text-charcoal mb-1">

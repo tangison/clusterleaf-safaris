@@ -3,8 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
-// Server component: the entrance fade is a pure CSS scroll-driven animation
-// (.reveal in globals.css), so this section ships no client JavaScript.
+// Server component: ships no client JavaScript.
 export default function CTASection() {
   return (
     <section className="relative py-24 overflow-hidden">
@@ -22,7 +21,7 @@ export default function CTASection() {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
-        <div className="reveal max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <h2 className="font-serif text-3xl md:text-5xl text-white mb-6">
             Ready to Experience Africa?
           </h2>

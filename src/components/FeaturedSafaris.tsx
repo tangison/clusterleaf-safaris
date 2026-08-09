@@ -4,8 +4,7 @@ import { ArrowRight } from "lucide-react";
 import SafariCard from "@/components/SafariCard";
 import { safaris } from "@/lib/content";
 
-// Server component: entrance fades are pure CSS scroll-driven animations
-// (.reveal in globals.css), so this section ships no client JavaScript.
+// Server component: ships no client JavaScript.
 export default function FeaturedSafaris() {
   const featuredSafaris = safaris.filter((s) => s.featured);
 
@@ -13,7 +12,7 @@ export default function FeaturedSafaris() {
     <section className="py-20 bg-off-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="reveal text-center mb-12">
+        <div className="text-center mb-12">
           <span className="text-savanna text-sm uppercase tracking-[0.3em] mb-4 block">
             Our Safaris
           </span>
@@ -34,7 +33,7 @@ export default function FeaturedSafaris() {
         </div>
 
         {/* View All Button */}
-        <div className="reveal text-center mt-12">
+        <div className="text-center mt-12">
           <Button
             asChild
             variant="outline"

@@ -4,16 +4,15 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { founderInfo, companyInfo } from "@/lib/content";
 
-// Server component: entrance animations are pure CSS scroll-driven
-// animations (.reveal-left/.reveal-right in globals.css), so this section
-// ships no client JavaScript.
+// Server component: ships no client JavaScript. The section clips its
+// decorative accent box so it cannot overflow the viewport horizontally.
 export default function AboutSnippet() {
   return (
-    <section className="py-20 bg-off-white">
+    <section className="py-20 bg-off-white overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image */}
-          <div className="reveal-left relative">
+          <div className="relative">
             <div className="relative h-[500px] overflow-hidden">
               <Image
                 src={founderInfo.image}
@@ -28,7 +27,7 @@ export default function AboutSnippet() {
           </div>
 
           {/* Content */}
-          <div className="reveal-right">
+          <div>
             <span className="text-savanna text-sm uppercase tracking-[0.3em] mb-4 block">
               Your Guide
             </span>

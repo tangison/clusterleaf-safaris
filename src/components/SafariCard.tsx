@@ -9,12 +9,11 @@ interface SafariCardProps {
   index?: number;
 }
 
-// Server component: the entrance fade is a pure CSS scroll-driven animation
-// (.reveal in globals.css), so this card ships no client JavaScript.
+// Server component: ships no client JavaScript.
 export default function SafariCard({ safari }: SafariCardProps) {
   return (
     <div
-      className="reveal group relative bg-white overflow-hidden rounded-3xl neu-card card-hover"
+      className="group relative bg-white overflow-hidden rounded-3xl neu-card card-hover"
     >
       {/* Image Container */}
       <div className="relative h-64 overflow-hidden rounded-t-3xl">
