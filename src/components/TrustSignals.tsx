@@ -40,7 +40,7 @@ export default function TrustSignals() {
               <span className="text-sm uppercase tracking-widest text-charcoal mb-1">
                 {stat.label}
               </span>
-              <span className="text-sm text-muted-foreground">
+              <span className="text-sm text-gray-600">
                 {stat.description}
               </span>
             </div>
