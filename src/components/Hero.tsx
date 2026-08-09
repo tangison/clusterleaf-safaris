@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
@@ -21,54 +20,35 @@ const heroPosters = [
 
 export default function Hero() {
   const [currentVideo, setCurrentVideo] = useState(0);
-  const [showVideo, setShowVideo] = useState(false);
 
   useEffect(() => {
-    // Poster-first LCP: upgrade to the video carousel only on tablet/desktop viewports
-    if (window.matchMedia("(min-width: 768px)").matches) {
-      setShowVideo(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!showVideo) return;
     const timer = setInterval(() => {
       setCurrentVideo((prev) => (prev + 1) % heroVideos.length);
     }, 8000); // Rotate every 8 seconds
     return () => clearInterval(timer);
-  }, [showVideo]);
+  }, []);
 
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-black">
-      {/* Background: static poster image on mobile (LCP friendly), video
-          carousel on >=768px. Plain CSS fade only; no JS animation library on
-          the critical path. The container remounts per video for the fade. */}
+      {/* Background video carousel on ALL viewports (mobile included, per
+          client request). The poster paints immediately while the video
+          buffers. Plain CSS fade on mount/rotation: no animation library on
+          the critical path. The container remounts per slide for the fade. */}
       <div
-        key={showVideo ? heroVideos[currentVideo] : "poster"}
+        key={heroVideos[currentVideo]}
         className="absolute inset-0 hero-bg-fade"
       >
-        {showVideo ? (
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={heroPosters[currentVideo]}
-            aria-hidden="true"
-            className="w-full h-full object-cover opacity-60"
-          >
-            <source src={heroVideos[currentVideo]} type="video/mp4" />
-          </video>
-        ) : (
-          <Image
-            src={heroPosters[currentVideo]}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover opacity-60"
-          />
-        )}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={heroPosters[currentVideo]}
+          aria-hidden="true"
+          className="w-full h-full object-cover opacity-60"
+        >
+          <source src={heroVideos[currentVideo]} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60" />
       </div>
 
@@ -131,21 +111,9 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Plain CSS keyframes: replaces the framer-motion crossfade so the
-          animation library stays out of the initial JS bundle entirely. */}
-      <style jsx>{`
-        @keyframes heroFadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-        .hero-bg-fade {
-          animation: heroFadeIn 1.2s ease-out both;
-        }
-      `}</style>
+      {/* Background fade comes from the .hero-bg-fade keyframes in globals.css:
+          plain CSS replaces the framer-motion crossfade so the animation
+          library stays out of the initial JS bundle entirely. */}
     </section>
   );
 }

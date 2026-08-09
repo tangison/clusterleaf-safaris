@@ -1,25 +1,19 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { founderInfo, companyInfo } from "@/lib/content";
 
+// Server component: entrance animations are pure CSS scroll-driven
+// animations (.reveal-left/.reveal-right in globals.css), so this section
+// ships no client JavaScript.
 export default function AboutSnippet() {
   return (
     <section className="py-20 bg-off-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative"
-          >
+          <div className="reveal-left relative">
             <div className="relative h-[500px] overflow-hidden">
               <Image
                 src={founderInfo.image}
@@ -31,15 +25,10 @@ export default function AboutSnippet() {
             </div>
             {/* Decorative element */}
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-savanna/20 -z-10" />
-          </motion.div>
+          </div>
 
           {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+          <div className="reveal-right">
             <span className="text-savanna text-sm uppercase tracking-[0.3em] mb-4 block">
               Your Guide
             </span>
@@ -80,7 +69,7 @@ export default function AboutSnippet() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

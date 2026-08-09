@@ -1,12 +1,11 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import SafariCard from "@/components/SafariCard";
 import { safaris } from "@/lib/content";
 
+// Server component: entrance fades are pure CSS scroll-driven animations
+// (.reveal in globals.css), so this section ships no client JavaScript.
 export default function FeaturedSafaris() {
   const featuredSafaris = safaris.filter((s) => s.featured);
 
@@ -14,13 +13,7 @@ export default function FeaturedSafaris() {
     <section className="py-20 bg-off-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
+        <div className="reveal text-center mb-12">
           <span className="text-savanna text-sm uppercase tracking-[0.3em] mb-4 block">
             Our Safaris
           </span>
@@ -31,7 +24,7 @@ export default function FeaturedSafaris() {
             Discover our most popular safari adventures, each meticulously crafted to
             deliver unforgettable wildlife encounters and authentic African experiences.
           </p>
-        </motion.div>
+        </div>
 
         {/* Safari Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -41,13 +34,7 @@ export default function FeaturedSafaris() {
         </div>
 
         {/* View All Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-12"
-        >
+        <div className="reveal text-center mt-12">
           <Button
             asChild
             variant="outline"
@@ -58,7 +45,7 @@ export default function FeaturedSafaris() {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,9 +1,9 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Calendar, Map, Star } from "lucide-react";
 import { companyInfo } from "@/lib/content";
 
+// Server component: the whileInView entrance fade is now a pure CSS
+// scroll-driven animation (.reveal in globals.css), so this section ships
+// no client JavaScript at all.
 const stats = [
   {
     icon: Calendar,
@@ -30,14 +30,10 @@ export default function TrustSignals() {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {stats.map((stat, index) => (
-            <motion.div
+          {stats.map((stat) => (
+            <div
               key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex flex-col items-center text-center p-6 border border-gray-100 hover:border-savanna/20 transition-colors"
+              className="reveal flex flex-col items-center text-center p-6 border border-gray-100 hover:border-savanna/20 transition-colors"
             >
               <stat.icon className="h-8 w-8 text-savanna mb-4" />
               <span className="font-serif text-4xl font-bold text-charcoal mb-1">
@@ -49,7 +45,7 @@ export default function TrustSignals() {
               <span className="text-sm text-muted-foreground">
                 {stat.description}
               </span>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

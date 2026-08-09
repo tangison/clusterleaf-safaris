@@ -1,21 +1,12 @@
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
+import TrustSignals from "@/components/TrustSignals";
+import FeaturedSafaris from "@/components/FeaturedSafaris";
+import AboutSnippet from "@/components/AboutSnippet";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import CTASection from "@/components/CTASection";
+import SocialProofSection from "@/components/SocialProofSection";
 import { createBreadcrumbSchema } from "@/lib/schema";
-
-// Below-fold sections hydrate lazily: their HTML is still server-rendered for
-// SEO and content visibility, but their JS (incl. framer-motion) stays out of
-// the initial bundle so script evaluation no longer blocks first paint/LCP.
-const TrustSignals = dynamic(() => import("@/components/TrustSignals"));
-const FeaturedSafaris = dynamic(() => import("@/components/FeaturedSafaris"));
-const AboutSnippet = dynamic(() => import("@/components/AboutSnippet"));
-const TestimonialsCarousel = dynamic(
-  () => import("@/components/TestimonialsCarousel")
-);
-const SocialProofSection = dynamic(
-  () => import("@/components/SocialProofSection")
-);
-const CTASection = dynamic(() => import("@/components/CTASection"));
 
 export const metadata: Metadata = {
   title: "Cluster Leaf Safaris | Premium African Safari Experiences",

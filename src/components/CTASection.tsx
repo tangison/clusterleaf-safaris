@@ -1,11 +1,10 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
+// Server component: the entrance fade is a pure CSS scroll-driven animation
+// (.reveal in globals.css), so this section ships no client JavaScript.
 export default function CTASection() {
   return (
     <section className="relative py-24 overflow-hidden">
@@ -23,13 +22,7 @@ export default function CTASection() {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto"
-        >
+        <div className="reveal max-w-3xl mx-auto">
           <h2 className="font-serif text-3xl md:text-5xl text-white mb-6">
             Ready to Experience Africa?
           </h2>
@@ -58,7 +51,7 @@ export default function CTASection() {
               <Link href="/safaris">Browse All Safaris</Link>
             </Button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

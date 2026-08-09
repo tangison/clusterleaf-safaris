@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { testimonials } from "@/lib/content";
@@ -36,16 +35,12 @@ export default function TestimonialsCarousel() {
           {/* Quote Icon */}
           <Quote className="absolute -top-4 left-0 h-12 w-12 text-white/20" />
 
-          {/* Testimonial Content */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.4 }}
-              className="text-center px-8 md:px-16"
-            >
+          {/* Testimonial Content: keyed remount + CSS swap animation replaces
+              framer-motion AnimatePresence (see .swap-in in globals.css) */}
+          <div
+            key={currentIndex}
+            className="swap-in text-center px-8 md:px-16"
+          >
               {/* Stars */}
               <div className="flex justify-center gap-1 mb-6">
                 {[...Array(5)].map((_, i) => (
@@ -73,8 +68,7 @@ export default function TestimonialsCarousel() {
                   {currentTestimonial.tour}
                 </p>
               </div>
-            </motion.div>
-          </AnimatePresence>
+          </div>
 
           {/* Navigation Buttons */}
           <div className="flex justify-center gap-4 mt-8">

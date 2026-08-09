@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -12,14 +9,12 @@ interface SafariCardProps {
   index?: number;
 }
 
-export default function SafariCard({ safari, index = 0 }: SafariCardProps) {
+// Server component: the entrance fade is a pure CSS scroll-driven animation
+// (.reveal in globals.css), so this card ships no client JavaScript.
+export default function SafariCard({ safari }: SafariCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group relative bg-white overflow-hidden rounded-3xl neu-card card-hover"
+    <div
+      className="reveal group relative bg-white overflow-hidden rounded-3xl neu-card card-hover"
     >
       {/* Image Container */}
       <div className="relative h-64 overflow-hidden rounded-t-3xl">
@@ -96,6 +91,6 @@ export default function SafariCard({ safari, index = 0 }: SafariCardProps) {
           </Link>
         </Button>
       </div>
-    </motion.div>
+    </div>
   );
 }
