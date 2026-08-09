@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
@@ -20,6 +20,32 @@ const heroPosters = [
 
 export default function Hero() {
   const [currentVideo, setCurrentVideo] = useState(0);
+  const [playVideo, setPlayVideo] = useState(false);
+
+  // Playback starts only after the window load event so the multi-hundred-KB
+  // video download never competes with the critical CSS/font/first-paint
+  // resources. The poster covers the interim, so the hero looks identical to
+  // a buffering autoplay video. Playback itself is still automatic (muted),
+  // no user interaction needed: the mobile video slides run as before.
+  useEffect(() => {
+    if (document.readyState === "complete") {
+      setPlayVideo(true);
+      return;
+    }
+    const onLoad = () => setPlayVideo(true);
+    window.addEventListener("load", onLoad, { once: true });
+    return () => window.removeEventListener("load", onLoad);
+  }, []);
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (playVideo && videoRef.current) {
+      videoRef.current.play().catch(() => {
+        /* autoplay blocked: the poster remains, indicators still work */
+      });
+    }
+  }, [playVideo, currentVideo]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -39,10 +65,11 @@ export default function Hero() {
         className="absolute inset-0 hero-bg-fade"
       >
         <video
-          autoPlay
+          ref={videoRef}
           muted
           loop
           playsInline
+          preload="none"
           poster={heroPosters[currentVideo]}
           aria-hidden="true"
           className="w-full h-full object-cover opacity-60"
