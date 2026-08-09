@@ -22,14 +22,23 @@ const heroPosters = [
 export default function Hero() {
   const [currentVideo, setCurrentVideo] = useState(0);
   const [rotated, setRotated] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
 
   useEffect(() => {
+    // Poster-first LCP: upgrade to the video carousel only on tablet/desktop viewports
+    if (window.matchMedia("(min-width: 768px)").matches) {
+      setShowVideo(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!showVideo) return;
     const timer = setInterval(() => {
       setRotated(true);
       setCurrentVideo((prev) => (prev + 1) % heroVideos.length);
     }, 8000); // Rotate every 8 seconds
     return () => clearInterval(timer);
-  }, []);
+  }, [showVideo]);
 
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-black">
@@ -43,17 +52,25 @@ export default function Hero() {
           transition={{ duration: 2 }}
           className="absolute inset-0"
         >
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={heroPosters[currentVideo]}
-            aria-hidden="true"
-            className="w-full h-full object-cover opacity-60"
-          >
-            <source src={heroVideos[currentVideo]} type="video/mp4" />
-          </video>
+          {showVideo ? (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster={heroPosters[currentVideo]}
+              aria-hidden="true"
+              className="w-full h-full object-cover opacity-60"
+            >
+              <source src={heroVideos[currentVideo]} type="video/mp4" />
+            </video>
+          ) : (
+            <div
+              className="w-full h-full bg-cover bg-center opacity-60"
+              style={{ backgroundImage: `url(${heroPosters[currentVideo]})` }}
+              role="presentation"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60" />
         </motion.div>
       </AnimatePresence>
