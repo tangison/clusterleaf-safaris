@@ -80,9 +80,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       // Headings
       if (line.startsWith("# ")) {
         return (
-          <h1 key={index} className="font-serif text-3xl md:text-4xl font-bold text-charcoal mt-8 mb-4">
+          <h2 key={index} className="font-serif text-3xl md:text-4xl font-bold text-charcoal mt-8 mb-4">
             {line.replace("# ", "")}
-          </h1>
+          </h2>
         );
       }
       if (line.startsWith("## ")) {

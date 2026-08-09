@@ -46,7 +46,7 @@ export default function Footer() {
             </p>
 
             {/* Brief Description */}
-            <p className="text-white/40 text-sm leading-relaxed max-w-sm mx-auto md:mx-0">
+            <p className="text-white/50 text-sm leading-relaxed max-w-sm mx-auto md:mx-0">
               Owner-operated safaris delivering authentic African experiences since 2015.
             </p>
 
@@ -113,7 +113,7 @@ export default function Footer() {
 
           {/* Right Column - Contact */}
           <div className="text-center md:text-right">
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-white/30 mb-6">
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-6">
               Get In Touch
             </h3>
             
@@ -135,7 +135,7 @@ export default function Footer() {
               </a>
 
               {/* Location */}
-              <p className="text-white/40 text-sm">
+              <p className="text-white/50 text-sm">
                 {companyInfo.address}
               </p>
             </div>
@@ -161,7 +161,7 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto px-6 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             {/* Copyright */}
-            <p className="text-white/30 text-sm order-2 md:order-1">
+            <p className="text-white/50 text-sm order-2 md:order-1">
               © {currentYear} Cluster Leaf Safaris
             </p>
 
@@ -169,19 +169,19 @@ export default function Footer() {
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm order-1 md:order-2">
               <Link
                 href="/privacy"
-                className="text-white/40 hover:text-white/60 transition-colors"
+                className="text-white/50 hover:text-white/70 transition-colors"
               >
                 Privacy
               </Link>
               <Link
                 href="/terms"
-                className="text-white/40 hover:text-white/60 transition-colors"
+                className="text-white/50 hover:text-white/70 transition-colors"
               >
                 Terms
               </Link>
               <Link
                 href="/faq"
-                className="text-white/40 hover:text-white/60 transition-colors"
+                className="text-white/50 hover:text-white/70 transition-colors"
               >
                 FAQ
               </Link>
