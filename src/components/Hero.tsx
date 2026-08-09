@@ -79,49 +79,26 @@ export default function Hero() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Content */}
+      {/* Content: rendered statically with full opacity in SSR HTML so the hero
+          text is the LCP element painted at first paint, not gated behind JS
+          hydration and timed entrance animations (was: +3.1s render delay). */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-4xl mx-auto"
-        >
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-sunset font-sans text-sm md:text-base tracking-[0.4em] uppercase mb-6 font-semibold"
-          >
+        <div className="max-w-4xl mx-auto">
+          <p className="text-sunset font-sans text-sm md:text-base tracking-[0.4em] uppercase mb-6 font-semibold">
             {companyInfo.subTagline}
-          </motion.p>
+          </p>
 
-          <motion.h1 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.5 }}
-            className="font-serif text-5xl md:text-7xl lg:text-9xl font-bold mb-6 text-shadow uppercase"
-          >
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-9xl font-bold mb-6 text-shadow uppercase">
             Africa <span className="text-secondary-sand font-bold">Awaits</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed font-light"
-          >
+          <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
             Experience the wild heart of Southern Africa with expert guide{" "}
             <span className="text-sunset font-medium">Mr. T</span>. Personalized
             safaris across Namibia, Botswana, Zimbabwe, and Zambia.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.4, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row gap-5 justify-center items-center"
-          >
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
             <Button
               asChild
               size="lg"
@@ -143,8 +120,8 @@ export default function Hero() {
                 <Play className="ml-2 h-4 w-4 fill-current" />
               </Link>
             </Button>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
       {/* Slide Indicators */}
