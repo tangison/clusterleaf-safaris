@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { Star, Quote } from "lucide-react";
 import { testimonials, companyInfo } from "@/lib/content";
 import CTASection from "@/components/CTASection";
+import ReviewBadge from "@/components/widgets/ReviewBadge";
 import { createBreadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -116,6 +117,20 @@ export default function ReviewsPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Verified Platform Listings */}
+      <section className="py-20 bg-white border-t border-gray-100">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="font-serif text-3xl text-charcoal text-center mb-3">
+            Verified on Independent Platforms
+          </h2>
+          <p className="text-gray-500 text-center mb-10 max-w-xl mx-auto">
+            Find our live listings on independent safari review platforms.
+            Ratings shown as published by each platform.
+          </p>
+          <ReviewBadge />
         </div>
       </section>
 

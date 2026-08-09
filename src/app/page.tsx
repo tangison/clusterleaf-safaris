@@ -40,10 +40,10 @@ export const metadata: Metadata = {
     locale: "en_NA",
     images: [
       {
-        url: "/assets/images/logos/logo-main.webp",
+        url: "/assets/images/og/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: "Cluster Leaf Safaris - Africa Awaits",
+        alt: "Oryx at the red dunes of Sossusvlei, Cluster Leaf Safaris",
       },
     ],
   },
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: "Cluster Leaf Safaris | Premium African Safari Experiences",
     description:
       "Owner-operated safaris across Namibia, Botswana, Zimbabwe & Zambia. Personalized adventures crafted by expert guide Taedza Mtambanengwe.",
-    images: ["/assets/images/logos/logo-main.webp"],
+    images: ["/assets/images/og/og-default.jpg"],
   },
   alternates: {
     canonical: "https://www.clusterleafsafaris.com",

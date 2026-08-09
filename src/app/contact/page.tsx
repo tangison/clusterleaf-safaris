@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, PenLine } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -374,15 +374,28 @@ export default function ContactPage() {
                     title="Cluster Leaf Safaris location - Windhoek, Namibia"
                   />
                 </div>
-                <a
-                  href="https://www.google.com/maps/search/Cluster+Leaf+Safaris+Windhoek+Namibia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 mt-4 text-savanna hover:text-savanna-dark transition-colors text-sm font-medium"
-                >
-                  <MapPin className="h-4 w-4" />
-                  View on Google Maps &middot; Leave a Review
-                </a>
+                <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+                  <a
+                    href="https://search.google.com/local/writereview?placeid=0x1c0b1badcc19c34f:0xcdae714e561d5bb8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-savanna hover:text-savanna-dark transition-colors font-medium"
+                    aria-label="Leave a review for Cluster Leaf Safaris on Google"
+                  >
+                    <PenLine className="h-4 w-4" />
+                    Leave a review on Google
+                  </a>
+                  <a
+                    href="https://www.google.com/maps/place/Cluster+Leaf+Safaris/data=!4m2!3m1!1s0x0:0xcdae714e561d5bb8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-gray-500 hover:text-savanna transition-colors"
+                    aria-label="Open Cluster Leaf Safaris in Google Maps"
+                  >
+                    <MapPin className="h-4 w-4" />
+                    View on Google Maps
+                  </a>
+                </div>
               </div>
             </div>
           </div>

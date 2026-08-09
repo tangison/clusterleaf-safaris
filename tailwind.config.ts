@@ -61,6 +61,7 @@ const config: Config = {
           light: "#E98767",
           dark: "#C96747",
         },
+        gold: "#D4AF37",
         charcoal: "#333333",
         "off-white": "#F9F9F9",
         "warm-white": "#F9F9F7",

@@ -90,6 +90,40 @@ export const companyInfo = {
   },
 };
 
+// Independent review platform listings (URLs and ratings verified live 2026-08-09)
+export const reviewPlatforms = [
+  {
+    name: "SafariBookings",
+    rating: "5.0 / 5",
+    stars: 5,
+    reviewCount: 5,
+    reviewLabel: "verified traveler reviews",
+    platformNote: "",
+    listingUrl: "https://www.safaribookings.com/p4873",
+    writeReviewUrl: "https://www.safaribookings.com/review/p4873",
+  },
+  {
+    name: "Your African Safari",
+    rating: "5.0 / 5",
+    stars: 5,
+    reviewCount: 2,
+    reviewLabel: "guest reviews",
+    platformNote: "YA Score 70/100",
+    listingUrl: "https://www.yourafricansafari.com/c/3237-cluster-leaf-safaris/",
+    writeReviewUrl: "https://www.yourafricansafari.com/reviews/create/tour-operator/3237/",
+  },
+  {
+    name: "Google",
+    rating: "",
+    stars: 0,
+    reviewCount: 0,
+    reviewLabel: "",
+    platformNote: "New on Google. Be the first to leave a review.",
+    listingUrl: "https://www.google.com/maps/place/Cluster+Leaf+Safaris/data=!4m2!3m1!1s0x0:0xcdae714e561d5bb8",
+    writeReviewUrl: "https://search.google.com/local/writereview?placeid=0x1c0b1badcc19c34f:0xcdae714e561d5bb8",
+  },
+];
+
 // Founder Information
 export const founderInfo = {
   name: "Taedza Mtambanengwe",

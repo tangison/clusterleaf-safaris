@@ -61,6 +61,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.6,
     },
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: '2025-01-15',
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: '2025-01-15',
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
   ];
 
   // Safari detail pages
