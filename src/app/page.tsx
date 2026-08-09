@@ -70,12 +70,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <link
-        rel="preload"
-        as="image"
-        href="/assets/images/hero/hero-delta.jpg"
-        type="image/jpeg"
-      />
+
       {/* Hero Section */}
       <Hero />
 

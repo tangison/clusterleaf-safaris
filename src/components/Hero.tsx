@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
@@ -65,10 +66,13 @@ export default function Hero() {
               <source src={heroVideos[currentVideo]} type="video/mp4" />
             </video>
           ) : (
-            <div
-              className="w-full h-full bg-cover bg-center opacity-60"
-              style={{ backgroundImage: `url(${heroPosters[currentVideo]})` }}
-              role="presentation"
+            <Image
+              src={heroPosters[currentVideo]}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover opacity-60"
             />
           )}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60" />
