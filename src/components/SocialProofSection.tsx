@@ -87,7 +87,7 @@ export default function SocialProofSection() {
                 loading="lazy"
               />
             </a>
-            <p className="text-xs text-gray-500 mt-2">
+            <p className="text-xs text-gray-600 mt-2">
               <a
                 href={companyInfo.socialLinks.visitNamibia}
                 target="_blank"

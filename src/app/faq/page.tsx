@@ -72,7 +72,7 @@ export default function FAQPage() {
               href={`https://wa.me/${companyInfo.whatsapp.replace(/\+/g, "").replace(/\s/g, "")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-[#25D366] text-white rounded-full font-semibold hover:bg-[#128C7E] transition-colors duration-200"
+              className="px-8 py-4 bg-[#0E7A3F] text-white rounded-full font-semibold hover:bg-[#0B6A37] transition-colors duration-200"
             >
               WhatsApp Us
             </a>

@@ -59,7 +59,7 @@ const config: Config = {
         sunset: {
           DEFAULT: "#D97757",
           light: "#E98767",
-          dark: "#C96747",
+          dark: "#B0502F",
         },
         gold: "#D4AF37",
         charcoal: "#333333",

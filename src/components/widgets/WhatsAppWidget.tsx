@@ -92,7 +92,7 @@ export default function WhatsAppWidget({
       {isOpen && (
         <div className="mb-3 bg-white rounded-xl shadow-xl w-[240px] sm:w-[280px] animate-in slide-in-from-bottom-2 duration-200 border border-gray-100">
           {/* Header */}
-          <div className="bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white p-3 rounded-t-xl flex items-center justify-between">
+          <div className="bg-gradient-to-r from-[#0E7A3F] to-[#0E7A3F] text-white p-3 rounded-t-xl flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
                 <MessageCircle size={18} className="text-white" />
@@ -121,7 +121,7 @@ export default function WhatsAppWidget({
 
             <button
               onClick={handleWhatsAppClick}
-              className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-medium py-2.5 rounded-full text-xs flex items-center justify-center gap-2 transition-colors"
+              className="w-full bg-[#0E7A3F] hover:bg-[#0B6A37] text-white font-medium py-2.5 rounded-full text-xs flex items-center justify-center gap-2 transition-colors"
             >
               <MessageCircle size={14} />
               Start Chat
@@ -133,7 +133,7 @@ export default function WhatsAppWidget({
       {/* Floating Button - Smaller */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative w-11 h-11 sm:w-12 sm:h-12 bg-[#25D366] hover:bg-[#128C7E] rounded-full shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center"
+        className="relative w-11 h-11 sm:w-12 sm:h-12 bg-[#0E7A3F] hover:bg-[#0B6A37] rounded-full shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center"
         aria-label="Contact us on WhatsApp"
       >
         {/* WhatsApp Icon */}
