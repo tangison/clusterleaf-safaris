@@ -58,6 +58,16 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        // Cache public assets (videos, gallery images, og image) for 1 year
+        source: '/assets/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
         // Cache images
         source: '/_next/image(.*)',
         headers: [

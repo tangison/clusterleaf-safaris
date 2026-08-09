@@ -165,7 +165,7 @@ export default function ContactPage() {
                         setFormData({ ...formData, travelers: value })
                       }
                     >
-                      <SelectTrigger className="mt-1 rounded-none">
+                      <SelectTrigger className="mt-1 rounded-none" aria-label="Number of travelers">
                         <SelectValue placeholder="Select" />
                       </SelectTrigger>
                       <SelectContent>
@@ -187,7 +187,7 @@ export default function ContactPage() {
                       setFormData({ ...formData, safari: value })
                     }
                   >
-                    <SelectTrigger className="mt-1 rounded-none">
+                    <SelectTrigger className="mt-1 rounded-none" aria-label="Interested safari">
                       <SelectValue placeholder="Select a safari" />
                     </SelectTrigger>
                     <SelectContent>
@@ -210,7 +210,7 @@ export default function ContactPage() {
                         setFormData({ ...formData, referralSource: value })
                       }
                     >
-                      <SelectTrigger className="mt-1 rounded-none">
+                      <SelectTrigger className="mt-1 rounded-none" aria-label="How did you hear about us?">
                         <SelectValue placeholder="Select" />
                       </SelectTrigger>
                       <SelectContent>
@@ -270,7 +270,7 @@ export default function ContactPage() {
 
                 <Button
                   type="submit"
-                  className="w-full bg-sunset hover:bg-sunset-dark text-white uppercase tracking-widest py-6 rounded-lg"
+                  className="w-full bg-sunset-dark hover:bg-sunset text-white uppercase tracking-widest py-6 rounded-lg"
                 >
                   <Send className="mr-2 h-4 w-4" />
                   Send via WhatsApp
@@ -380,7 +380,7 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-savanna hover:text-savanna-dark transition-colors font-medium"
-                    aria-label="Leave a review for Cluster Leaf Safaris on Google"
+                    aria-label="Leave a review on Google for Cluster Leaf Safaris"
                   >
                     <PenLine className="h-4 w-4" />
                     Leave a review on Google
@@ -390,7 +390,7 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-gray-500 hover:text-savanna transition-colors"
-                    aria-label="Open Cluster Leaf Safaris in Google Maps"
+                    aria-label="View on Google Maps, Cluster Leaf Safaris listing"
                   >
                     <MapPin className="h-4 w-4" />
                     View on Google Maps

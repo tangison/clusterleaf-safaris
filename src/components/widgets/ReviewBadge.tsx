@@ -42,7 +42,7 @@ export default function ReviewBadge() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2.5 bg-savanna hover:bg-savanna-dark text-white text-sm font-medium transition-colors"
-              aria-label={`View Cluster Leaf Safaris on ${platform.name}`}
+              aria-label={`View listing: Cluster Leaf Safaris on ${platform.name}`}
             >
               <ExternalLink className="h-4 w-4" />
               View listing
@@ -52,7 +52,7 @@ export default function ReviewBadge() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2.5 border border-savanna text-savanna hover:bg-savanna/5 text-sm font-medium transition-colors"
-              aria-label={`Write a review of Cluster Leaf Safaris on ${platform.name}`}
+              aria-label={`Write a review on ${platform.name} for Cluster Leaf Safaris`}
             >
               <PenLine className="h-4 w-4" />
               Write a review

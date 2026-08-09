@@ -13,6 +13,12 @@ const heroVideos = [
   "/assets/videos/safari-vehicle-sunset-v2.mp4",
 ];
 
+const heroPosters = [
+  "/assets/images/gallery/landscape-delta-aerial.webp",
+  "/assets/images/gallery/sossus-dunes.webp",
+  "/assets/images/gallery/landscape-sunset-silhouette.webp",
+];
+
 export default function Hero() {
   const [currentVideo, setCurrentVideo] = useState(0);
 
@@ -40,6 +46,7 @@ export default function Hero() {
             muted
             loop
             playsInline
+            poster={heroPosters[currentVideo]}
             aria-hidden="true"
             className="w-full h-full object-cover opacity-60"
           >
@@ -95,7 +102,7 @@ export default function Hero() {
             <Button
               asChild
               size="lg"
-              className="bg-sunset hover:bg-sunset-dark text-white uppercase tracking-widest px-10 py-7 text-sm rounded-none border border-sunset transition-all duration-300"
+              className="bg-sunset-dark hover:bg-sunset text-white uppercase tracking-widest px-10 py-7 text-sm rounded-none border border-sunset-dark transition-all duration-300"
             >
               <Link href="/contact" className="flex items-center">
                 Plan Your Safari

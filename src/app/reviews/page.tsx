@@ -146,7 +146,7 @@ export default function ReviewsPage() {
           </p>
           <a
             href="/contact"
-            className="inline-block px-8 py-4 bg-sunset hover:bg-sunset-dark text-white uppercase tracking-widest text-sm transition-colors"
+            className="inline-block px-8 py-4 bg-sunset-dark hover:bg-sunset text-white uppercase tracking-widest text-sm transition-colors"
           >
             Plan Your Safari
           </a>

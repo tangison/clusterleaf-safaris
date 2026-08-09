@@ -35,7 +35,7 @@ export default function SocialProofSection() {
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
           {/* Social Follow */}
           <div className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">
+            <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-4">
               Follow Our Adventures
             </p>
             <div className="flex items-center justify-center gap-3">
@@ -69,7 +69,7 @@ export default function SocialProofSection() {
 
           {/* NTB Registered Badge */}
           <div className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">
+            <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-4">
               Registered Tourism Operator
             </p>
             <a
@@ -87,7 +87,7 @@ export default function SocialProofSection() {
                 loading="lazy"
               />
             </a>
-            <p className="text-xs text-gray-400 mt-2">
+            <p className="text-xs text-gray-500 mt-2">
               <a
                 href={companyInfo.socialLinks.visitNamibia}
                 target="_blank"

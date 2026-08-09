@@ -70,6 +70,12 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <link
+        rel="preload"
+        as="image"
+        href="/assets/images/gallery/landscape-delta-aerial.webp"
+        type="image/webp"
+      />
       {/* Hero Section */}
       <Hero />
 

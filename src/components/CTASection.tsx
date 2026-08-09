@@ -42,7 +42,7 @@ export default function CTASection() {
             <Button
               asChild
               size="lg"
-              className="bg-sunset hover:bg-sunset-dark text-white uppercase tracking-widest px-10 py-7 text-sm rounded-lg"
+              className="bg-sunset-dark hover:bg-sunset text-white uppercase tracking-widest px-10 py-7 text-sm rounded-lg"
             >
               <Link href="/contact">
                 Get a Custom Quote

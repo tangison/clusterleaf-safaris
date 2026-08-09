@@ -66,7 +66,7 @@ export default function TestimonialsCarousel() {
                 <p className="text-white font-medium text-lg">
                   {currentTestimonial.name}
                 </p>
-                <p className="text-white/70 text-sm">
+                <p className="text-white/80 text-sm">
                   {currentTestimonial.country} • {currentTestimonial.date}
                 </p>
                 <p className="text-desert text-sm mt-1">
@@ -104,13 +104,17 @@ export default function TestimonialsCarousel() {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`h-2 rounded-full transition-all ${
-                  index === currentIndex
-                    ? "w-8 bg-sunset"
-                    : "w-2 bg-white/40 hover:bg-white/60"
-                }`}
+                className="h-6 w-6 flex items-center justify-center"
                 aria-label={`Go to testimonial ${index + 1}`}
-              />
+              >
+                <span
+                  className={`block h-2 rounded-full transition-all ${
+                    index === currentIndex
+                      ? "w-8 bg-sunset"
+                      : "w-2 bg-white/40 hover:bg-white/60"
+                  }`}
+                />
+              </button>
             ))}
           </div>
         </div>
