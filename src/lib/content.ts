@@ -82,10 +82,11 @@ export const companyInfo = {
   whatsapp: "+264817378313",
   address: "Windhoek, Namibia",
   socialLinks: {
-    facebook: "https://www.facebook.com/profile.php?id=100054251930452",
-    instagram: "https://instagram.com/clusterleafsafaris",
-    tripadvisor: "https://tripadvisor.com/clusterleafsafaris",
+    facebook: "https://www.facebook.com/people/Cluster-Leaf-Safaris/100054251930452/",
+    instagram: "https://www.instagram.com/clusterleafsafaris",
+    safariBookings: "https://www.safaribookings.com/p4873",
     yourAfricanSafari: "https://www.yourafricansafari.com/c/3237-cluster-leaf-safaris/",
+    visitNamibia: "https://visitnamibia.com.na/directory/cluster_leaf_safaris_cc/",
   },
 };
 

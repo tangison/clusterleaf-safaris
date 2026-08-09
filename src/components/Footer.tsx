@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Instagram, Facebook, Mail, Phone, MapPin } from "lucide-react";
+import { Instagram, Facebook, Mail, Phone, MapPin, Star, Globe } from "lucide-react";
 import Image from "next/image";
 import { companyInfo } from "@/lib/content";
 
@@ -69,6 +69,44 @@ export default function Footer() {
                 aria-label="Facebook"
               >
                 <Facebook size={18} className="text-white/60" />
+              </a>
+              <a
+                href={companyInfo.socialLinks.safariBookings}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-all duration-200"
+                aria-label="Read reviews on SafariBookings"
+              >
+                <Star size={18} className="text-gold" />
+              </a>
+              <a
+                href={companyInfo.socialLinks.visitNamibia}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-all duration-200"
+                aria-label="Visit Namibia Tourism Board listing"
+              >
+                <Globe size={18} className="text-white/60" />
+              </a>
+            </div>
+
+            {/* NTB Registered Badge */}
+            <div className="mt-6 flex items-center justify-center md:justify-start">
+              <a
+                href={companyInfo.socialLinks.visitNamibia}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-white/40 text-xs hover:text-white/60 transition-colors"
+              >
+                <Image
+                  src="/assets/images/ntb-registered.png"
+                  alt="Registered with Namibia Tourism Board"
+                  width={28}
+                  height={28}
+                  className="opacity-60"
+                  loading="lazy"
+                />
+                NTB Registered
               </a>
             </div>
           </div>

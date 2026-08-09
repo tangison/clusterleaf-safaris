@@ -2,6 +2,7 @@
 // Following Google's structured data guidelines
 
 const baseUrl = 'https://www.clusterleafsafaris.com';
+export const googleShareUrl = 'https://share.google/jq8hWdN3zUuAqqBxe';
 
 // Organization Schema
 export const organizationSchema = {
@@ -34,11 +35,12 @@ export const organizationSchema = {
     availableLanguage: ['English'],
   },
   sameAs: [
-    'https://www.facebook.com/profile.php?id=100054251930452',
+    'https://www.facebook.com/people/Cluster-Leaf-Safaris/100054251930452/',
     'https://www.instagram.com/clusterleafsafaris',
     'https://www.linkedin.com/in/taedza-mtambanengwe-60948857',
-    'https://www.safaribookings.com/operators/cluster-leaf-safaris',
-    'https://www.yourafricansafari.com/3237-cluster-leaf-safaris',
+    'https://www.safaribookings.com/p4873',
+    'https://www.yourafricansafari.com/c/3237-cluster-leaf-safaris/',
+    'https://visitnamibia.com.na/directory/cluster_leaf_safaris_cc/',
   ],
   aggregateRating: {
     '@type': 'AggregateRating',

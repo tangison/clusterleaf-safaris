@@ -35,7 +35,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.vercel.app https://*.clusterleafsafaris.com; font-src 'self' data:; connect-src 'self' https://*.vercel.app; frame-ancestors 'none'; base-uri 'self'; form-action 'self';",
+            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.vercel.app https://*.clusterleafsafaris.com https://*.google.com https://*.googleusercontent.com https://*.gstatic.com; font-src 'self' data:; connect-src 'self' https://*.vercel.app; frame-src 'self' https://www.google.com https://maps.google.com https://share.google; frame-ancestors 'none'; base-uri 'self'; form-action 'self';",
           },
         ],
       },

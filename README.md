@@ -95,7 +95,40 @@ Node 18+ required. Bun also works.
 
 ---
 
+## Credentials & Listings
+
+| Platform | URL | Status |
+|----------|-----|--------|
+| Website | https://www.clusterleafsafaris.com | Live |
+| Visit Namibia (NTB) | https://visitnamibia.com.na/directory/cluster_leaf_safaris_cc/ | Listed |
+| SafariBookings | https://www.safaribookings.com/p4873 | 6 reviews, 5.0/5 |
+| Your African Safari | https://www.yourafricansafari.com/c/3237-cluster-leaf-safaris/ | 2 reviews |
+| Google Maps | https://share.google/jq8hWdN3zUuAqqBxe | Share link |
+| Facebook | https://www.facebook.com/people/Cluster-Leaf-Safaris/100054251930452/ | Active |
+| Instagram | https://www.instagram.com/clusterleafsafaris | Active |
+| LinkedIn | https://www.linkedin.com/in/taedza-mtambanengwe-60948857 | Personal |
+
+The site displays the **Namibia Tourism Board Registered** badge linking to the Visit Namibia directory listing.
+
+---
+
 ## Changelog
+
+### v2.2.0 — 9 August 2026
+
+- Added SafariBookings review CTA button with 5-star rating display on homepage
+- Added social proof section with Instagram/Facebook follow buttons (canonical URLs)
+- Added NTB (Namibia Tourism Board) registered badge in homepage and footer
+- Added Visit Namibia directory link (visitnamibia.com.na)
+- Fixed broken SafariBookings URL in schema.ts (`/operators/cluster-leaf-safaris` → `/p4873`)
+- Fixed Facebook URL to canonical form (`/people/Cluster-Leaf-Safaris/...`)
+- Fixed Instagram URL to canonical form (`www.instagram.com/...`)
+- Removed dead TripAdvisor URL from content.ts (no listing exists)
+- Fixed og:locale from `en_US` to `en_NA` (Namibia)
+- Updated Google Maps embed on contact page with proper lazy-loading and review link
+- Added honeypot spam-protection field to contact form
+- Updated CSP headers to allow Google Maps iframe and image CDN domains
+- Updated README with live platform listings and credentials table
 
 ### v2.1.0 — 9 June 2026
 

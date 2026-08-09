@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     url: "https://www.clusterleafsafaris.com",
     siteName: "Cluster Leaf Safaris",
     type: "website",
-    locale: "en_US",
+    locale: "en_NA",
     images: [
       {
         url: "/assets/images/logos/logo-main.webp",

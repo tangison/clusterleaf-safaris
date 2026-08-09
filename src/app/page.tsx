@@ -5,6 +5,7 @@ import FeaturedSafaris from "@/components/FeaturedSafaris";
 import AboutSnippet from "@/components/AboutSnippet";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import CTASection from "@/components/CTASection";
+import SocialProofSection from "@/components/SocialProofSection";
 import { createBreadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     url: "https://www.clusterleafsafaris.com",
     siteName: "Cluster Leaf Safaris",
     type: "website",
-    locale: "en_US",
+    locale: "en_NA",
     images: [
       {
         url: "/assets/images/logos/logo-main.webp",
@@ -83,6 +84,9 @@ export default function Home() {
 
       {/* Testimonials */}
       <TestimonialsCarousel />
+
+      {/* Social Proof: SafariBookings, Social Follow, NTB Badge */}
+      <SocialProofSection />
 
       {/* CTA Section */}
       <CTASection />

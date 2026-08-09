@@ -35,10 +35,14 @@ export default function ContactPage() {
     referralSource: "",
     referrerName: "",
     message: "",
+    honeypot: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Honeypot spam check
+    if (formData.honeypot) return;
 
     // Build WhatsApp message directly
     const messageParts = [
@@ -250,6 +254,20 @@ export default function ContactPage() {
                   />
                 </div>
 
+                {/* Honeypot - hidden from humans, catches bots */}
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={formData.honeypot}
+                  onChange={(e) =>
+                    setFormData({ ...formData, honeypot: e.target.value })
+                  }
+                  className="absolute -left-[9999px] -top-[9999px] opacity-0 h-0 w-0"
+                  aria-hidden="true"
+                />
+
                 <Button
                   type="submit"
                   className="w-full bg-sunset hover:bg-sunset-dark text-white uppercase tracking-widest py-6 rounded-lg"
@@ -344,18 +362,27 @@ export default function ContactPage() {
 
               {/* Map */}
               <div className="mt-8">
-                <div className="relative h-64 bg-gray-200 overflow-hidden">
+                <div className="relative h-64 bg-gray-200 overflow-hidden rounded-xl">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230375.62368945678!2d17.0!3d-22.57!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1c0c1c7c7f5e5e5e%3A0x5e5e5e5e5e5e5e5e!2sWindhoek%2C%20Namibia!5e0!3m2!1sen!2s!4v1234567890"
+                    src="https://maps.google.com/maps?q=Cluster+Leaf+Safaris+Windhoek+Namibia&t=&z=14&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Windhoek, Namibia"
+                    title="Cluster Leaf Safaris location - Windhoek, Namibia"
                   />
                 </div>
+                <a
+                  href="https://www.google.com/maps/search/Cluster+Leaf+Safaris+Windhoek+Namibia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-4 text-savanna hover:text-savanna-dark transition-colors text-sm font-medium"
+                >
+                  <MapPin className="h-4 w-4" />
+                  View on Google Maps &middot; Leave a Review
+                </a>
               </div>
             </div>
           </div>
